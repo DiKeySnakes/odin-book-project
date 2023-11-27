@@ -1,0 +1,93 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mongodb"
+    url      = env("DATABASE_URL")
+}
+
+enum RoleType {
+    USER
+    ADMIN
+}
+
+model User {
+    id               String         @id @default(auto()) @map("_id") @db.ObjectId
+    externalId       String?        @unique
+    firstName        String?
+    lastName         String?
+    email            String?
+    profileImage     String?
+    externalImage    String?
+    coverImage       String?
+    images           Image[]
+    bio              String?
+    role             RoleType       @default(USER)
+    verified         Boolean        @default(false)
+    friendIds        String[]
+    friendRequests   String[]
+    hasNotifications Boolean?
+    posts            Post[]
+    comments         Comment[]
+    notifications    Notification[]
+    createdAt        DateTime       @default(now())
+    updatedAt        DateTime       @updatedAt
+}
+
+model Post {
+    id        String    @id @default(auto()) @map("_id") @db.ObjectId
+    text      String?
+    userId    String
+    likeIds   String[]
+    images    Image[]
+    user      User      @relation(fields: [userId], references: [externalId], onDelete: Cascade)
+    comments  Comment[]
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
+}
+
+model Comment {
+    id        String   @id @default(auto()) @map("_id") @db.ObjectId
+    text      String
+    userId    String
+    author    User     @relation(fields: [userId], references: [externalId], onDelete: Cascade)
+    postId    String   @db.ObjectId
+    post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+enum NotificationType {
+    LIKE
+    FRIEND_REQUEST
+    COMMENT
+}
+
+model Notification {
+    id                 String            @id @default(auto()) @map("_id") @db.ObjectId
+    content            String?
+    userId             String
+    user               User              @relation(fields: [userId], references: [externalId], onDelete: Cascade)
+    senderFirstname    String?
+    senderLastname     String?
+    senderProfileImage String?
+    type               NotificationType?
+    createdAt          DateTime          @default(now())
+    readAt             DateTime?
+}
+
+model Image {
+    id        String   @id @default(auto()) @map("_id") @db.ObjectId
+    imageId   String
+    userId    String
+    user      User     @relation(fields: [userId], references: [externalId], onDelete: Cascade)
+    postId    String   @db.ObjectId
+    post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+    url       String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
