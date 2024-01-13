@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^4.29.3",
     "@hookform/resolvers": "^3.3.4",
     "@prisma/client": "^5.6.0",
     "@radix-ui/react-aspect-ratio": "^1.0.3",
@@ -29,6 +30,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "cmdk": "^0.2.0",
+    "date-fns": "^3.2.0",
     "framer-motion": "^10.18.0",
     "latest": "^0.2.0",
     "lucide-react": "^0.293.0",
