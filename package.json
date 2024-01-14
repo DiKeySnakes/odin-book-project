@@ -11,6 +11,7 @@
   "dependencies": {
     "@clerk/nextjs": "^4.29.3",
     "@hookform/resolvers": "^3.3.4",
+    "@mantine/hooks": "^7.4.1",
     "@prisma/client": "^5.6.0",
     "@radix-ui/react-aspect-ratio": "^1.0.3",
     "@radix-ui/react-avatar": "^1.0.4",
@@ -33,6 +34,7 @@
     "date-fns": "^3.2.0",
     "framer-motion": "^10.18.0",
     "latest": "^0.2.0",
+    "lodash.debounce": "^4.0.8",
     "lucide-react": "^0.293.0",
     "next": "14.0.3",
     "next-themes": "^0.2.1",
@@ -50,6 +52,7 @@
     "zustand": "^4.4.7"
   },
   "devDependencies": {
+    "@types/lodash.debounce": "^4.0.9",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
