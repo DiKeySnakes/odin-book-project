@@ -32,7 +32,7 @@ export function FriendListItem({ user }: FriendListProps) {
                 alt={user?.firstName ?? ''}
               />
               <AvatarFallback>
-                <img src='/images/placeholder.png' />
+                <img src='/images/placeholder.png' alt='placeholder' />
               </AvatarFallback>
             </Avatar>
             <UserName
