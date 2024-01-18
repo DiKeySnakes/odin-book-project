@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 216, 20%, 95%;
+    --secondary-background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+
+    --border: 220 13% 91%;
+    --input: 216, 20%, 95%;
+
+    --primary: 220.9 39.3% 11%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+
+    --accent: 216, 10%, 90%;
+    --accent-foreground: 220.9 39.3% 11%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+
+    --ring: 214, 86%, 51%;
+
+    --radius: 0.5rem;
+
+    --facebook-primary-color: 214, 86%, 51%;
+
+    --facebook-secondary-color: 109, 65%, 41%;
+  }
+
+  .dark {
+    --background: 210, 4%, 10%;
+    --secondary-background: 210, 3%, 15%;
+    --foreground: 210 20% 98%;
+
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+
+    --card: 210, 3%, 15%;
+    --card-foreground: 210 20% 98%;
+
+    --border: 210, 2%, 23%;
+    --input: 210, 2%, 23%;
+
+    --primary: 210 20% 98%;
+    --primary-foreground: 220.9 39.3% 11%;
+
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+
+    --accent: 210, 2%, 23%;
+    --accent-foreground: 210 20% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+
+    --ring: 214, 86%, 51%;
+
+    --facebook-primary-color: 214, 86%, 51%;
+
+    --facebook-secondary-color: 109, 65%, 41%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.shadow-glow-sm {
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.18);
+  -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.18);
+  -moz-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.18);
+}
+
+.dark .shadow-glow-sm {
+  box-shadow: 0px 0px 6px 0px rgba(255, 255, 255, 0.18);
+  -webkit-box-shadow: 0px 0px 6px 0px rgba(255, 255, 255, 0.18);
+  -moz-box-shadow: 0px 0px 6px 0px rgba(255, 255, 255, 0.18);
+}
+
+.shadow-glow-md {
+  box-shadow: 0px 0px 60px -10px rgba(0, 0, 0, 0.46);
+  -webkit-box-shadow: 0px 0px 60px -10px rgba(0, 0, 0, 0.46);
+  -moz-box-shadow: 0px 0px 60px -10px rgba(0, 0, 0, 0.46);
+}
+
+.dark .shadow-glow-md {
+  box-shadow: 0px 0px 60px -10px rgba(255, 255, 255, 0.46);
+  -webkit-box-shadow: 0px 0px 60px -10px rgba(255, 255, 255, 0.46);
+  -moz-box-shadow: 0px 0px 60px -10px rgba(255, 255, 255, 0.46);
+}
